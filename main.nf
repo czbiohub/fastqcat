@@ -102,7 +102,7 @@ ch_output_docs = Channel.fromPath("$baseDir/docs/output.md")
 if(params.readPaths){
     Channel
         .from(params.readPaths)
-        .map { row -> [row[0], [file(row[1][0]), file(row[2][0])]] }
+        .map { row -> [row[0], [file(row[1][0]), file(row[1][1])]] }
         .ifEmpty { exit 1, "params.readPaths was empty - no input files supplied" }
         .set { read_files }
 
