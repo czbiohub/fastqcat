@@ -1,19 +1,19 @@
-# nf-core/fastqcat
+# czbiohub/fastqcat
 
 **Concatenate fastq files of samples from multiple lanes**.
 
-[![Build Status](https://travis-ci.com/nf-core/fastqcat.svg?branch=master)](https://travis-ci.com/nf-core/fastqcat)
+[![Build Status](https://travis-ci.com/czbiohub/fastqcat.svg?branch=master)](https://travis-ci.com/czbiohub/fastqcat)
 [![Nextflow](https://img.shields.io/badge/nextflow-%E2%89%A50.32.0-brightgreen.svg)](https://www.nextflow.io/)
 
 [![install with bioconda](https://img.shields.io/badge/install%20with-bioconda-brightgreen.svg)](http://bioconda.github.io/)
-[![Docker](https://img.shields.io/docker/automated/nfcore/fastqcat.svg)](https://hub.docker.com/r/nfcore/fastqcat)
+[![Docker](https://img.shields.io/docker/automated/czbiohub/fastqcat.svg)](https://hub.docker.com/r/czbiohub/fastqcat)
 
 ## Introduction
 The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool to run tasks across multiple compute infrastructures in a very portable manner. It comes with docker containers making installation trivial and results highly reproducible.
 
 
 ## Documentation
-The nf-core/fastqcat pipeline comes with documentation about the pipeline, found in the `docs/` directory:
+The czbiohub/fastqcat pipeline comes with documentation about the pipeline, found in the `docs/` directory:
 
 1. [Installation](https://nf-co.re/usage/installation)
 2. Pipeline configuration
@@ -24,7 +24,7 @@ The nf-core/fastqcat pipeline comes with documentation about the pipeline, found
 4. [Output and how to interpret the results](docs/output.md)
 5. [Troubleshooting](https://nf-co.re/usage/troubleshooting)
 
-<!-- TODO nf-core: Add a brief overview of what the pipeline does and how it works -->
+<!-- TODO czbiohub: Add a brief overview of what the pipeline does and how it works -->
 
 ## Credits
-nf-core/fastqcat was originally written by Olga Botvinnik.
+czbiohub/fastqcat was originally written by Olga Botvinnik.
