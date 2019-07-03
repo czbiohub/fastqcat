@@ -108,18 +108,19 @@ if(params.readPaths){
 
 } else {
     Channel
-        .fromFilePairs( params.reads, size: 1)
+        .fromFilePairs(params.reads, size: 2)
         .ifEmpty { exit 1, "Cannot find any reads matching: ${params.reads}\nNB: Path needs to be enclosed in quotes!\nIf this is single-end data, please specify --singleEnd on the command line." }
         .set { read_files }
 }
 
 // Get the pre-Lane sample name and R1 match
-def pattern = ~/([\w-]+)_L\d{3}_(R[12])/
+def pattern = ~/([\w-]+)_L(\d+)/
 read_files
-  .map{ name, reads -> tuple((name =~ pattern)[0][1], (name =~ pattern)[0][2], reads)}
-  .groupTuple(by: [0, 1])
-  .map{ name, readN, reads -> tuple(name, readN, reads.flatten())}
-  .set{ reads_to_concatenate }
+  .map { name, reads -> tuple((name =~ sample_name_pattern).iterator().collect().getAt(0)?.getAt(1) ?: name, reads) }
+  .groupTuple()
+  .map { name, reads -> tuple(name, reads.transpose()) }
+  .flatMap { name, reads -> reads.indexed().collect { index, item -> tuple(name, "R${index + 1}", item) } }
+  .set { reads_to_concatenate }
 
 // Header log info
 log.info nfcoreHeader()
