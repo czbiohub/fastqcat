@@ -122,7 +122,7 @@ read_files
   .groupTuple()
   .map { name, reads -> tuple(name, reads.transpose()) }
   .flatMap { name, reads -> reads.indexed().collect { index, item -> tuple(name, "R${index + 1}", item) } }
-  .map { name, reads -> tuple(trim_pattern ? name.replaceAll(trim_pattern, "") : name, reads) }
+  .map { name, readN, reads -> tuple(trim_pattern ? name.replaceAll(trim_pattern, "") : name, readN, reads) }
   .set { reads_to_concatenate }
 
 // Header log info
