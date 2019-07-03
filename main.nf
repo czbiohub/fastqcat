@@ -116,7 +116,7 @@ if(params.readPaths){
 // Get the pre-Lane sample name and R1 match
 def pattern = ~/([\w-]+)_L(\d+)/
 read_files
-  .map { name, reads -> tuple((name =~ sample_name_pattern).iterator().collect().getAt(0)?.getAt(1) ?: name, reads) }
+  .map { name, reads -> tuple((name =~ pattern).iterator().collect().getAt(0)?.getAt(1) ?: name, reads) }
   .groupTuple()
   .map { name, reads -> tuple(name, reads.transpose()) }
   .flatMap { name, reads -> reads.indexed().collect { index, item -> tuple(name, "R${index + 1}", item) } }
