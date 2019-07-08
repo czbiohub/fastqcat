@@ -25,6 +25,7 @@
   * [`--awsregion`](#--awsregion)
 * [Other command line parameters](#other-command-line-parameters)
   * [`--outdir`](#--outdir)
+  * [`--trim_pattern`](#--trim_pattern)
   * [`--email`](#--email)
   * [`-name`](#-name)
   * [`-resume`](#-resume)
@@ -207,6 +208,18 @@ Please make sure to also set the `-w/--work-dir` and `--outdir` parameters to a 
 
 ### `--outdir`
 The output directory where the results will be saved.
+
+### `--trim_pattern`
+A regular expression pattern to trim from sample names.
+Matches multiple times.
+
+Examples:
+
+Remove `_S` followed by some number from the sample names:
+
+```bash
+--trim_path '_S\d+'
+```
 
 ### `--email`
 Set this parameter to your e-mail address to get a summary e-mail with details of the run sent to you when the workflow exits. If set in your user config file (`~/.nextflow/config`) then you don't need to specify this on the command line for every run.
