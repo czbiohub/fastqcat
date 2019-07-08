@@ -216,6 +216,7 @@ Matches multiple times.
 Examples:
 
 Remove `_S` followed by some number from the sample names:
+
 ```bash
 --trim_path '_S\d+'
 ```
